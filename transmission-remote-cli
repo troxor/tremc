@@ -2734,24 +2734,24 @@ class Interface(object):
     def draw_quick_help(self):
         help = [('?','Help')]
 
-        if self.selected_torrent == -1:
-            if self.focus >= 0:
-                help = [('enter','View'), ('p','Pause/Unpause'), ('r','Remove'), ('v','Verify')]
-            else:
-                help = [('/','Search'), ('f','Filter'), ('s','Sort')] + help + [('o','Options'), ('q','Quit')]
-        else:
-            help = [('Move with','cursor keys'), ('q','Back to List')]
-            if self.details_category_focus == 1 and self.focus_detaillist > -1:
-                help = [('enter', 'Open File'),
-                        ('space','(De)Select File'),
-                        ('V','Visually Select Files'),
-                        ('left/right','De-/Increase Priority'),
-                        ('escape','Unfocus/-select')] + help
-            elif self.details_category_focus == 2:
-                help = [('F1/?','Explain flags')] + help
-            elif self.details_category_focus == 3:
-                help = [('a','Add Tracker'),('r','Remove Tracker')] + help
-
+#        if self.selected_torrent == -1:
+#            if self.focus >= 0:
+#                help = [('enter','View'), ('p','Pause/Unpause'), ('r','Remove'), ('v','Verify')]
+#            else:
+#                help = [('/','Search'), ('f','Filter'), ('s','Sort')] + help + [('o','Options'), ('q','Quit')]
+#        else:
+#            help = [('Move with','cursor keys'), ('q','Back to List')]
+#            if self.details_category_focus == 1 and self.focus_detaillist > -1:
+#                help = [('enter', 'Open File'),
+#                        ('space','(De)Select File'),
+#                        ('V','Visually Select Files'),
+#                        ('left/right','De-/Increase Priority'),
+#                        ('escape','Unfocus/-select')] + help
+#            elif self.details_category_focus == 2:
+#                help = [('F1/?','Explain flags')] + help
+#            elif self.details_category_focus == 3:
+#                help = [('a','Add Tracker'),('r','Remove Tracker')] + help
+#
         line = '  '.join(["%s:%s" % (x[0], x[1]) for x in help])
         line = line[0:self.width]
         self.screen.insstr(0, self.width-len(line), line, curses.A_REVERSE)
